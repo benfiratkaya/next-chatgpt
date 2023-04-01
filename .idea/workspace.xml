@@ -5,32 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb85b07-ec1e-4e28-82b3-72eff2380400" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/libs/openai.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/chat.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/translate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/ChildrenProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/next-chatgpt.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Content.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SubmitButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SystemMessage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UserMessage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/translate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/prompt/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libs/openai.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs/openai.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/chat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/chat.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/translate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/translate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/firatkaya/WebstormProjects/next-chatgpt/src/pages/api",
+    "last_opened_file_path": "/Users/firatkaya/WebstormProjects/next-chatgpt/src/components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,11 +63,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src/pages/api" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/backup" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
@@ -93,7 +84,7 @@
       <workItem from="1680279698607" duration="5906000" />
       <workItem from="1680292953614" duration="2736000" />
       <workItem from="1680342754927" duration="3444000" />
-      <workItem from="1680379178517" duration="1114000" />
+      <workItem from="1680379178517" duration="8733000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680284914996</created>
@@ -109,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680284932221</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="init">
+      <created>1680380395699</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680380395699</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

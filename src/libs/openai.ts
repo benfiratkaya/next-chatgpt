@@ -20,3 +20,15 @@ export async function chat(prompt: string) {
 
     return completion.data;
 }
+
+export async function translate(text: string) {
+    const openai = client();
+    const completion = await openai.createCompletion({
+        model: process.env.OPENAI_API_MODEL,
+        messages: [
+            {role: "user", content: "Merhaba sen kimsin"},
+        ],
+    });
+
+    return completion.data;
+}
