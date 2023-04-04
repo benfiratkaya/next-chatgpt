@@ -1,6 +1,6 @@
 import React from 'react';
 import {UserCircleIcon} from "@heroicons/react/24/solid";
-import Markdown from "@/components/Markdown";
+import Markdown from "@/components/chat/Markdown";
 
 type UserMessageProps = {
     message: string;

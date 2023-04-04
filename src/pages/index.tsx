@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import TemplateCard from "@/components/TemplateCard";
+import TemplateCard from "@/components/home/TemplateCard";
 
 const cards = [
     {

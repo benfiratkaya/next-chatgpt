@@ -22,7 +22,7 @@ export default async function handler(
     const response = await translate(text, sourceLanguage, targetLanguage);
     console.log(response);
     res.status(200).json({
-      text: response.choices[0].text
+      text: response.choices[0].message.content
     })
   } catch (error: any) {
     if (error.response) {

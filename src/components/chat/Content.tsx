@@ -1,6 +1,6 @@
 import React from 'react';
-import UserMessage from "@/components/UserMessage";
-import SystemMessage from "@/components/SystemMessage";
+import UserMessage from "@/components/chat/UserMessage";
+import SystemMessage from "@/components/chat/SystemMessage";
 import NoSSR from "@/components/NoSSR";
 import ScrollToBottom from "react-scroll-to-bottom";
 

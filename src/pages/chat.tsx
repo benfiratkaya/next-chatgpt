@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
-import Content from "@/components/Content";
-import Footer from "@/components/Footer";
-import ChatTextarea from "@/components/ChatTextarea";
+import Content from "@/components/chat/Content";
+import Footer from "@/components/chat/Footer";
+import ChatTextarea from "@/components/chat/ChatTextarea";
 
 export default function ChatPage() {
     return (
