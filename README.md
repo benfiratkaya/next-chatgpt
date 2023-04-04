@@ -1,8 +1,7 @@
 <div align="center">
 <h1>Next-GPT</h1>
+<p>Next-GPT is an open-source project that facilitates the use of ChatGPT with a user-friendly interface, providing many ready-to-use templates within.</p>
 </div>
-Next-GPT is an open-source project that facilitates the use of ChatGPT with a user-friendly interface, providing many ready-to-use templates within.
-
 
 ## Why Next-GPT?
 
