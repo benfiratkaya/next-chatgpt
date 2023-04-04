@@ -8,10 +8,11 @@ type LayoutProps = {
 }
 
 const Layout = ({children, title}: LayoutProps) => {
+    title = `Next GPT - ${title}`
     return (
         <>
             <Head>
-                <title>Next ChatGPT - {title}</title>
+                <title>{title}</title>
                 <meta name="description" content="ChatGPT application built with OpenAI API, Next.js, TypeScript, and TailwindCSS." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />

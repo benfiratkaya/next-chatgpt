@@ -1,18 +1,19 @@
 import React from 'react';
-import {ChatBubbleOvalLeftEllipsisIcon, UserCircleIcon} from "@heroicons/react/24/solid";
+import {UserCircleIcon} from "@heroicons/react/24/solid";
+import Markdown from "@/components/Markdown";
 
 type UserMessageProps = {
-    children: React.ReactNode;
+    message: string;
 }
 
-const UserMessage = ({children}: UserMessageProps) => {
+const UserMessage = ({message}: UserMessageProps) => {
     return (
         <div className="bg-accents-0 text-white">
             <div className="max-w-4xl w-full mx-auto">
-                <div className="flex gap-3 px-3 lg:px-0 py-4">
+                <div className="flex gap-4 px-3 lg:px-0 py-4">
                     <UserCircleIcon className="h-8 w-8 text-gray-400"/>
-                    <div className="mt-0.5">
-                        {children}
+                    <div className="prose prose-invert">
+                        <Markdown content={message} />
                     </div>
                 </div>
             </div>

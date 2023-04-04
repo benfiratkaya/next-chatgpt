@@ -1,26 +1,37 @@
 import React from 'react';
 import UserMessage from "@/components/UserMessage";
 import SystemMessage from "@/components/SystemMessage";
+import NoSSR from "@/components/NoSSR";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 const Content = () => {
+    const markdown = `Here is some JavaScript code:
+
+~~~js
+console.log('It works!')
+~~~
+`
     return (
         <div className="relative flex-1 h-full">
-            <div className="absolute top-0 flex flex-col w-full h-full overflow-x-hidden overflow-y-auto">
-                <div className="flex flex-col">
-                    <UserMessage>Deneme2</UserMessage>
+            <NoSSR>
+                <ScrollToBottom
+                    initialScrollBehavior="auto"
+                    followButtonClassName="scroll-to-last-message"
+                    className="!absolute top-0 flex flex-col w-full h-full overflow-x-hidden overflow-y-auto"
+                >
+                    <UserMessage message={markdown} />
+                    <SystemMessage>Deneme11</SystemMessage>
+                    <UserMessage message="Deneme22" />
+                    <UserMessage message="Deneme22" />
+                    <UserMessage message="Deneme22" />
+                    <UserMessage message="Deneme22" />
+                    <UserMessage message="Deneme22" />
+                    <UserMessage message="Deneme22" />
                     <SystemMessage>Deneme</SystemMessage>
-                    <UserMessage>Deneme</UserMessage>
-                    <SystemMessage>Deneme</SystemMessage>
-                    <UserMessage>Deneme</UserMessage>
-                    <SystemMessage>Deneme</SystemMessage>
-                    <UserMessage>Deneme</UserMessage>
-                    <SystemMessage>Deneme</SystemMessage>
-                    <UserMessage>Deneme</UserMessage>
                     <SystemMessage>Deneme</SystemMessage>
                     <SystemMessage>Deneme</SystemMessage>
-                    <SystemMessage>Deneme</SystemMessage>
-                </div>
-            </div>
+                </ScrollToBottom>
+            </NoSSR>
         </div>
     );
 };

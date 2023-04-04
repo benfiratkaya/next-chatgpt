@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import {classNames} from "@/utils/classNames";
 
 const navigation = [
-    { name: 'Chat', href: '/', icon: ChatBubbleOvalLeftEllipsisIcon },
+    { name: 'Chat', href: '/chat', icon: ChatBubbleOvalLeftEllipsisIcon },
     { name: 'Translate', href: '/translate', icon: LanguageIcon },
 ]
 

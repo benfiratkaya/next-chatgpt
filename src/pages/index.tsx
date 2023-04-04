@@ -1,23 +1,34 @@
 import Layout from "@/components/Layout";
-import Content from "@/components/Content";
-import TextareaAutosize from 'react-textarea-autosize';
+import TemplateCard from "@/components/TemplateCard";
 
+const cards = [
+    {
+        href: "/chat",
+        title: "Chat",
+        description: "Chat with AI powered chatbot."
+    },
+    {
+        href: "/translate",
+        title: "Translate",
+        description: "Translate text to different languages."
+    }
+];
 
 export default function Home() {
   return (
-    <Layout title="Chat">
-        <Content />
-        <div className="relative my-4 lg:my-6">
-            <footer className="relative max-w-4xl mx-auto px-3 lg:px-0">
-                <TextareaAutosize
-                    rows={1}
-                    name="comment"
-                    id="comment"
-                    className="px-4 py-3 bg-accents-1 focus:outline-none block w-full text-sm text-white rounded-md"
-                    placeholder="Type your message here..."
-                    defaultValue={''}
-                />
-            </footer>
+    <Layout title="Home">
+        <div className="w-full h-full flex flex-col items-center justify-center px-4 lg:px-32">
+            <h1 className="text-3xl font-bold">Welcome!</h1>
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                {cards.map((card, index) => (
+                    <TemplateCard
+                        key={index}
+                        href={card.href}
+                        title={card.title}
+                        description={card.description}
+                    />
+                ))}
+            </div>
         </div>
     </Layout>
   )

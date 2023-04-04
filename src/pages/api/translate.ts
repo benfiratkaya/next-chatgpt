@@ -3,12 +3,14 @@ import {translate} from "@/libs/openai";
 
 interface TranslateRequest extends NextApiRequest {
   body: {
-    text: string
+    text: string,
+    sourceLanguage: string,
+    targetLanguage: string,
   }
 }
 
 type Data = {
-  name: string
+  text: string
 }
 
 export default async function handler(
@@ -16,9 +18,12 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
   try {
-    const response = await translate(req.body.text);
+    const {text, sourceLanguage, targetLanguage} = req.body;
+    const response = await translate(text, sourceLanguage, targetLanguage);
     console.log(response);
-    res.status(200).json(response.choices[0].message)
+    res.status(200).json({
+      text: response.choices[0].text
+    })
   } catch (error: any) {
     if (error.response) {
       console.log(error.response.status);
