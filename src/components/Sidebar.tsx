@@ -2,17 +2,11 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
     Bars3Icon,
-    ChatBubbleOvalLeftEllipsisIcon,
-    LanguageIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation';
 import {classNames} from "@/utils/classNames";
-
-const navigation = [
-    { name: 'Chat', href: '/chat', icon: ChatBubbleOvalLeftEllipsisIcon },
-    { name: 'Translate', href: '/translate', icon: LanguageIcon },
-]
+import {navigation} from "@/data/nativagation";
 
 export default function Sidebar() {
     const [sidebarOpen, setSidebarOpen] = useState(false)

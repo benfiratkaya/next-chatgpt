@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '@/redux/store'
 
 interface TranslateState {
+    isLoading: boolean
+    search: string
     sourceLang: string
     sourceText: string
     targetLang: string
@@ -9,9 +11,11 @@ interface TranslateState {
 }
 
 const initialState: TranslateState = {
+    isLoading: false,
+    search: '',
     sourceLang: 'auto',
     sourceText: '',
-    targetLang: 'English',
+    targetLang: 'en',
     targetText: ''
 }
 
@@ -19,6 +23,12 @@ export const translateSlice = createSlice({
     name: 'translate',
     initialState,
     reducers: {
+        setIsLoading: (state, action: PayloadAction<boolean>) => {
+            state.isLoading = action.payload
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload
+        },
         setSourceLang: (state, action: PayloadAction<string>) => {
             state.sourceLang = action.payload
         },
@@ -41,6 +51,8 @@ export const translateSlice = createSlice({
 })
 
 export const {
+    setIsLoading,
+    setSearch,
     setSourceLang,
     setSourceText,
     setTargetLang,
@@ -48,6 +60,8 @@ export const {
     switchLang
 } = translateSlice.actions
 
+export const selectIsLoading = (state: RootState) => state.translate.isLoading
+export const selectSearch = (state: RootState) => state.translate.search
 export const selectSourceLang = (state: RootState) => state.translate.sourceLang
 export const selectSourceText = (state: RootState) => state.translate.sourceText
 export const selectTargetLang = (state: RootState) => state.translate.targetLang

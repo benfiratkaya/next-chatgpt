@@ -1,23 +1,16 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {setSourceLang, selectSourceLang, selectSearch} from "@/redux/reducers/translateSlice";
+import {useSelector} from "react-redux";
+import {selectTargetLang, selectSearch} from "@/redux/reducers/translateSlice";
 import LanguageMenu from "@/components/translate/LanguageMenu";
 import LanguageMenuItem from "@/components/translate/LanguageMenuItem";
 import {languages} from "@/data/languages";
 
-const SourceLanguageSelector = () => {
+const TargetLanguageSelector = () => {
     const search = useSelector(selectSearch);
-    const sourceLanguage = useSelector(selectSourceLang);
-    const dispatch = useDispatch();
-    return (
-        <LanguageMenu active={sourceLanguage}>
-            <LanguageMenuItem
-                active={sourceLanguage === "auto"}
-                onClick={() => dispatch(setSourceLang("auto"))}
-            >
-                Auto Detect
-            </LanguageMenuItem>
+    const targetLanguage = useSelector(selectTargetLang);
 
+    return (
+        <LanguageMenu active={targetLanguage}>
             {
                 languages
                     .filter(
@@ -26,8 +19,8 @@ const SourceLanguageSelector = () => {
                     .map((language) => (
                         <LanguageMenuItem
                             key={language.code}
-                            active={sourceLanguage === language.code}
-                            onClick={() => dispatch(setSourceLang(language.code))}
+                            active={targetLanguage === language.code}
+                            onClick={() => false}
                         >
                             {language.name}
                         </LanguageMenuItem>
@@ -37,4 +30,4 @@ const SourceLanguageSelector = () => {
     );
 };
 
-export default SourceLanguageSelector;
+export default TargetLanguageSelector;

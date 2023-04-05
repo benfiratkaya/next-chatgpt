@@ -1,9 +1,11 @@
 
 import { configureStore } from '@reduxjs/toolkit'
 import translateSlice from '@/redux/reducers/translateSlice'
+import chatSlice from "@/redux/reducers/chatSlice";
 
 export const store = configureStore({
     reducer: {
+        chat: chatSlice,
         translate: translateSlice,
     },
 })

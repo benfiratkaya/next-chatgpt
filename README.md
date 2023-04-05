@@ -18,6 +18,7 @@ ChatGPT is indeed a powerful system, but it can provide a better user experience
 ## Screenshot
 
 <img src="https://i.imgur.com/Dhcu1LG.png">
+<img src="https://i.imgur.com/BUIKUNM.png">
 <img src="https://i.imgur.com/f7AioUJ.png">
 
 ## Templates

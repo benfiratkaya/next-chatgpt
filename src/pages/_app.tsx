@@ -6,10 +6,10 @@ import {store} from "@/redux/store";
 import '@/assets/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <>
-    <NextNProgress color="#b8b8b8" />
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  </>
+  return (
+      <Provider store={store}>
+        <NextNProgress color="#b8b8b8" />
+        <Component {...pageProps} />
+      </Provider>
+  )
 }

@@ -4,6 +4,7 @@ import {chat} from "@/libs/openai";
 interface ChatRequest extends NextApiRequest {
   body: {
     prompt: string
+    messages: ChatMessage[]
   }
 }
 
@@ -11,9 +12,7 @@ type Data = {
   status: boolean;
   message?: string;
   data?: {
-    choices: {
-      message: string;
-    }[]
+    message: ChatMessage[]
   };
 }
 
@@ -22,17 +21,28 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   try {
-    const response = await chat(req.body.prompt);
-    console.log(response);
-    res.status(200).json(response.choices[0].message)
+    const {prompt, messages} = req.body;
+    const response = await chat(prompt, messages);
+    //console.log(response);
+    const data = response.choices.map(choice => choice.message);
+    res.status( 200).json({
+      status: true,
+      data
+    })
   } catch (error: any) {
     if (error.response) {
       console.log(error.response.status);
       console.log(error.response.data);
-      res.status(500).json(error.response.data)
+      res.status(500).json({
+        status: false,
+        message: error.response.data
+      })
     } else {
       console.log(error.message);
-      res.status(500).json(error.message)
+      res.status(500).json({
+        status: false,
+        message: error.message
+      })
     }
   }
 }

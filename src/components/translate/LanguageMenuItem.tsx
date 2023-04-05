@@ -4,17 +4,17 @@ import {classNames} from "@/utils/classNames";
 type LanguageMenuItemProps = {
     children: React.ReactNode;
     active: boolean;
-    onChange: any;
+    onClick: any;
 }
 
-const LanguageMenuItem = ({children, active, onChange}: LanguageMenuItemProps) => {
+const LanguageMenuItem = ({children, active, onClick}: LanguageMenuItemProps) => {
     return (
         <div
             className={classNames(
-                "w-full px-3 py-2 cursor-pointer",
+                "w-full px-3 py-2 cursor-pointer text-sm",
                 active ? "bg-accents-3" : "hover:bg-accents-3"
             )}
-            onChange={onChange}
+            onClick={onClick}
         >
             {children}
         </div>

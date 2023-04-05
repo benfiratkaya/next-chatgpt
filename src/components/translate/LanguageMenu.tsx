@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
+import {useDispatch} from "react-redux";
+import {setSearch} from "@/redux/reducers/translateSlice";
+import { useDetectClickOutside } from 'react-detect-click-outside';
 import {ChevronDownIcon} from "@heroicons/react/24/solid";
+import LanguageList from "@/components/translate/LanguageList";
 import {languages} from "@/data/languages";
 
 type LanguageMenuProps = {
@@ -8,35 +12,34 @@ type LanguageMenuProps = {
 }
 
 const LanguageMenu = ({children, active}: LanguageMenuProps) => {
+    const dispatch = useDispatch();
+
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+        dispatch(setSearch(''));
+    }
+    const handleClose = () => {
+        if (!isOpen) return;
+
+        setIsOpen(false);
+        dispatch(setSearch(''));
+    }
+
+    const ref = useDetectClickOutside({
+        onTriggered: handleClose,
+    });
     return (
-        <>
-            <div>
-                <div
-                    className="flex items-center cursor-pointer"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
+        <div ref={ref}>
+            <div className="flex items-center cursor-pointer" onClick={handleToggle}>
                 <span className="font-medium">
-                    {languages.find(k => k.code === active).name}
+                    {active === "auto" ? "Auto Detect" : languages.find(k => k.code === active).name}
                 </span>
-                    <span>
-                    <ChevronDownIcon className="w-4 h-4 text-accents-5 ml-2"/>
-                </span>
-                </div>
+                <ChevronDownIcon className="w-4 h-4 text-accents-5 ml-2"/>
             </div>
-            {isOpen && (
-                <div className="absolute top-12 left-0 w-full bg-accents-2 border-b border-accents-3">
-                    <div className="border-b border-accents-3">
-                        <input
-                            placeholder="Search languages"
-                            className="w-full px-4 py-2 text-accents-5 bg-accents-2 outline-none"
-                        />
-                    </div>
-                    <div className="grid grid-cols-6">
-                        {children}
-                    </div>
-                </div>
-            )}</>
+            {isOpen && <LanguageList>{children}</LanguageList>}
+        </div>
     );
 };
 

@@ -1,15 +1,16 @@
 import React, {useEffect} from 'react';
+import axios from "axios";
 import debounce from 'lodash.debounce'
 import {useDispatch, useSelector} from "react-redux";
 import {
     selectSourceLang,
     selectSourceText,
     selectTargetLang,
+    setIsLoading,
     setSourceText,
     setTargetText
 } from "@/redux/reducers/translateSlice";
 import Textarea from "react-textarea-autosize";
-import axios from "axios";
 
 const TextArea = () => {
     const sourceText = useSelector(selectSourceText);
@@ -19,22 +20,27 @@ const TextArea = () => {
 
     const handleInput = debounce((e) => {
         dispatch(setSourceText(e.target.value));
-    }, 500);
+    }, 1000);
 
     useEffect(() => {
+        if (sourceLang === targetLang) return;
+
         if (sourceText === "") {
             dispatch(setTargetText(""))
         }
         else {
+            dispatch(setIsLoading(true));
             axios.post('/api/translate', {
                 text: sourceText,
                 sourceLang,
                 targetLang
             }).then(res => {
-                dispatch(setTargetText(res.data.text))
+                dispatch(setTargetText(res.data.data.text))
+                dispatch(setIsLoading(false));
+                console.log("test!")
             })
         }
-    }, [sourceText, sourceLang, targetLang]);
+    }, [sourceText, sourceLang, targetLang, dispatch]);
 
     return (
         <Textarea

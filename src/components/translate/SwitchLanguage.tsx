@@ -6,15 +6,14 @@ import {selectSourceLang, switchLang} from "@/redux/reducers/translateSlice";
 const SwitchLanguage = () => {
     const sourceLang = useSelector(selectSourceLang);
     const dispatch = useDispatch();
-    const handleClick = (e) => {
-        console.log(sourceLang)
+    const handleClick = () => {
         if (sourceLang !== "auto") {
             dispatch(switchLang())
         }
     }
 
     return (
-        <button onClick={handleClick}>
+        <button className="mx-3" onClick={handleClick}>
             <ArrowsRightLeftIcon className="w-5 h-5 text-accents-5"/>
         </button>
     );
